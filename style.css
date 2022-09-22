@@ -1,0 +1,75 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	color: white;
+	justify-content: center;
+	background: rgb(174, 237, 238);
+	background: radial-gradient(circle,
+			rgba(174, 237, 238, 1) 28%,
+			rgba(148, 187, 233, 1) 100%);
+}
+
+.calculator-element {
+	background-color: rgba(250, 235, 215, 0.75);
+	border: 8px solid rgba(0, 0, 0, 0.548);
+	display: flex;
+	flex-direction: column;
+}
+.operationDisplay{
+	width: 100%;
+	height: 70px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: space-around;
+	background-color: rgb(46, 61, 56);
+	font-weight: bold;
+}
+.previousOperation{
+	font-size: 0.9em;
+	color: rgba(255, 255, 255, 0.966);
+}
+.newOperation{
+	font-size: 1.5em;
+}
+button{
+	width: 60px;
+	height: 40px;
+	font-weight: bolder;
+	border: 1px solid rgb(0, 0, 0, 0.5);
+	
+}
+button:hover{
+	background-color: azure;
+}
+.operation{
+	width: 100%;
+	height: 100%;
+	display: grid;
+	grid-template-areas: 
+	'ac ac del mul'
+	'seven eight del mul'
+	'four five six sub'
+	'one two three add'
+	'ze dot equal equal'
+	;
+}
+.allClear{
+	grid-column: ac;
+	width: 100%;
+	background-color: red;
+}
+.equal{
+	grid-area: equal;
+	width: 100%;	
+}
+.del{
+	background-color: rgba(245, 68, 68, 0.616);
+}
