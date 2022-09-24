@@ -1,7 +1,8 @@
 class Calculator {
-	constructor(previousOperation, newOperation) {
+	constructor(newOperation, previousOperation) {
 		this.previousOperation = previousOperation;
 		this.newOperation = newOperation;
+		console.log(this.newOperation.innerText)
 		this.clearAll();
 	}
 	clearAll() {
@@ -13,14 +14,16 @@ class Calculator {
 
 	}
 	appendOperand(value) {
+		this.newOperation =  this.newOperation.toString() + value.toString();
+		console.log(this.newOperation);
 	}
 	calculate() {
 
 	}
 
-	display(value) {
-		this.previousOperation = value;
-		console.log(this.previousOperation)
+	display() {
+		// console.log(this.previousOperation)
+		newOperation.innerText = this.newOperation;
 	}
 };
 
@@ -31,13 +34,14 @@ const operation = document.querySelector('.op');
 const numbers = document.querySelectorAll('.number');
 
 // instantiation here
-const calculator = new Calculator(previousOperation, newOperation);
+const calculator = new Calculator(newOperation, previousOperation);
 
 
 numbers.forEach(number => {
 	number.addEventListener('click', () => {
 		// console.log(number.innerText);
-		calculator.display(number.innerText);
+		calculator.appendOperand(number.innerText)
+		calculator.display();
 	}
 	)
 });
