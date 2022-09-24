@@ -2,7 +2,7 @@ class Calculator {
 	constructor(newOperation, previousOperation) {
 		this.previousOperation = previousOperation;
 		this.newOperation = newOperation;
-		console.log(this.newOperation.innerText)
+		// console.log(this.newOperation.innerText)
 		this.clearAll();
 	}
 	clearAll() {
@@ -14,8 +14,9 @@ class Calculator {
 
 	}
 	appendOperand(value) {
-		this.newOperation =  this.newOperation.toString() + value.toString();
-		console.log(this.newOperation);
+		if (value === '.' && this.newOperation.includes('.')) return;
+		this.newOperation = this.newOperation.toString() + value;
+		// console.log(this.newOperation);
 	}
 	calculate() {
 
@@ -43,5 +44,5 @@ numbers.forEach(number => {
 		calculator.appendOperand(number.innerText)
 		calculator.display();
 	}
-	)
+	);
 });
