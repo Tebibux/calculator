@@ -4,39 +4,41 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<script defer src="script.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
-	<meta name="viewport" content="width=1.0" initial-scale=1.0">
-	<title>Calculator</title>
+	<title>TheOdinCalculator</title>
 </head>
 
 <body>
-	<div class="calculator-element">
-		<div class="operationDisplay">
-			<div class="previousOperation">1234+</div>
-			<div class="newOperation"></div>
-		</div>
-		<div class="operation">
-			<button class="allClear allClear-delete">Clear</button>
-			<button class="del deleter">Del</button>
-			<button class="op mul">X</button>
-			<button class="number seven">7</button>
-			<button class="number eight">8</button>
-			<button class="number nine">9</button>
-			<button class="op div">/</button>
-			<button class="number four">4</button>
-			<button class="number five">5</button>
-			<button class="number six">6</button>
-			<button class="op sub">-</button>
-			<button class="number one">1</button>
-			<button class="number two">2</button>
-			<button class="number three">3</button>
-			<button class="op add">+</button>
-			<button class="number zero">0</button>
-			<button class="number dot">.</button>
-			<button class="op equal">=</button>
+	<div class="mainContainer">
+		<div class="container">
+			<div class="displayBox">
+				<div class="previousBox innerBox">0123456789</div>
+				<div class="currentBox innerBox">9876543210</div>
+			</div>
+			<div class="buttonBox">
+				<button class="allClear twice_span">Clear</button>
+				<button class="del_span">Del</button>
+				<button class="mul_span">X</button>
+				<button class="seven_span">7</button>
+				<button class="eight_span">8</button>
+				<button class="nine_span">9</button>
+				<button class="div_span">÷</button>
+				<button class="four_span">4</button>
+				<button class="five_span">5</button>
+				<button class="six_span">6</button>
+				<button class="sub_span">-</button>
+				<button class="one_span">1</button>
+				<button class="two_span">2</button>
+				<button class="three_span">3</button>
+				<button class="minus_span">-</button>
+				<button class="zero_span">0</button>
+				<button class="dot_span">.</button>
+				<button class="equalSign equal_span">=</button>
+			</div>
 		</div>
 	</div>
+
 </body>
 
 </html>

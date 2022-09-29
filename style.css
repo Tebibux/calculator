@@ -1,76 +1,80 @@
 * {
-	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
+	font-size: 18px;
+	color: white;
 }
 
-body {
+.mainContainer {
 	height: 100vh;
 	display: flex;
-	align-items: center;
-	color: white;
 	justify-content: center;
-	background: rgb(174, 237, 238);
+	align-items: center;
 	background: radial-gradient(circle,
 			rgba(174, 237, 238, 1) 28%,
 			rgba(148, 187, 233, 1) 100%);
 }
 
-.calculator-element {
-	width: 25%;
-	background-color: rgba(250, 235, 215, 0.75);
-	border: 8px solid rgba(0, 0, 0, 0.548);
+.container {
+	height: 40vh;
+	width: 300px;
 	display: flex;
 	flex-direction: column;
+	gap: 10px;
+	background-color: rgba(87, 151, 170, 0.678);
+	box-shadow: 0px 0px 10px 11px rgba(148, 148, 148, 0.34);
+	-webkit-box-shadow: 0px 0px 10px 11px rgba(148, 148, 148, 0.34);
+	-moz-box-shadow: 0px 0px 10px 11px rgba(148, 148, 148, 0.34);
 }
-.operationDisplay{
-	width: 100%;
-	height: 70px;
+
+.displayBox {
+	height: auto;
+	background-color: rgb(75, 75, 70);
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
 	justify-content: space-around;
-	background-color: rgb(46, 61, 56);
+	gap: 10px;
+	padding: 5px;
+}
+
+.innerBox {
+	display: flex;
+	justify-content: end;
+	width: 100%;
+}
+.currentBox{
 	font-weight: bold;
 }
-.previousOperation{
-	font-size: 0.9em;
-	color: rgba(255, 255, 255, 0.966);
+.previousBox{
+	color: rgba(255, 255, 255, 0.87);
 }
-.newOperation{
-	font-size: 1.5em;
-}
-button{
-	width: 100%;
-	height: 40px;
-	font-weight: bolder;
-	border: 1px solid rgb(0, 0, 0, 0.5);
-	
-}
-button:hover{
-	background-color: azure;
-}
-.operation{
-	width: 100%;
+.buttonBox{
 	height: 100%;
+	width: 100%;
+	background-color: rgba(162, 177, 180, 0.795);
 	display: grid;
 	grid-template-areas: 
-	'ac ac del mul'
-	'seven eight del mul'
-	'four five six sub'
-	'one two three add'
-	'ze dot equal equal'
-	;
+	'twice_span twice_span del_span mul_span'
+	'seven_span eight_span nine_span div_span'
+	'four_span five_span six_span sub_span'
+	'one_span two_span three_span minus_span'
+	'zero_span dot_span equalSign equalSign';
+	gap: 3px;
+}
+button{
+	color: black;
+	border-radius: 2px;
+}
+button:hover{
+	background-color: rgba(0, 0, 0, 0.322);
+	color: white;
 }
 .allClear{
-	grid-column: ac;
 	width: 100%;
-	background-color: red;
+	grid-column: twice_span;
 }
-.equal{
-	grid-area: equal;
-	width: 100%;	
-}
-.del{
-	background-color: rgba(245, 68, 68, 0.616);
+.equalSign{
+	width: 100%;
+	grid-column: equalSign;
 }
