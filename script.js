@@ -23,9 +23,6 @@ numberBtn.forEach(number => {
 		if (e.target.innerText === '.' && num.includes('.')) return;
 
 		else {
-			if (e.target.innerText === '.' && currentBox.innerText === '') {
-				num = 0;
-			};
 			num += e.target.innerText;
 			currentBox.innerText = num;
 		}
@@ -48,8 +45,8 @@ operationBtn.forEach(opCommand => {
 });
 // parsing equal sign
 equalSign.addEventListener('click', () => {
-	if (currentBox.innerText === '') return;
-	else {
+	if (currentBox.innerText === '' && previousBox.innerText === '') return;
+	else{
 		calculate()
 	}
 })
@@ -58,41 +55,50 @@ function calculate(command) {
 	let firstNum = previousBox.innerText.slice(0, -1);
 	let secondNum = currentBox.innerText;
 	if (operation === '*') {
-		result = parseFloat(secondNum) * parseFloat(firstNum);
+		result = parseFloat(firstNum) * parseFloat(secondNum);
 		tempClear();
 	}
-	if (operation === '/') {
-		result = parseFloat(secondNum) / parseFloat(firstNum);
+	else if (operation === '/') {
+		result = parseFloat(firstNum) / parseFloat(secondNum);
 		tempClear();
 	}
-	if (operation === '-') {
-		result = parseFloat(secondNum) - parseFloat(firstNum);
+	else if (operation === '-') {
+		result = parseFloat(firstNum) - parseFloat(secondNum);
 		tempClear();
 	}
-	if (operation === '+') {
-		result = parseFloat(secondNum) + parseFloat(firstNum);
+	else if (operation === '+') {
+		result = parseFloat(firstNum) + parseFloat(secondNum);
 		tempClear();
 	}
 
 }
 // for temporary clearance
 function tempClear() {
+	currentBox.innerText = '';
 	currentBox.innerText = result;
-	previousBox.innerText = '';
+	previousBox.innerText = '0';
 	operation = '';
 }
 
 // for deleting the last element
 btnDelete.addEventListener('click', ()=>{
 	if(currentBox.innerText === '') return;
-	else{
-		let tempCurrent = '';
-		tempCurrent = currentBox.innerText.slice(0, -1);
-		currentBox.innerText = tempCurrent
+	else if(result){
+		num = '';
+		currentBox.innerText = currentBox.innerText.slice(0,-1);
 	}
-})
+	else{
+		// let tempCurrent = '';
+		// tempCurrent = currentBox.innerText.slice(0, -1);
+		// currentBox.innerText = '';
+		// currentBox.innerText = tempCurrent;
+		num = num.slice(0, -1);
+		currentBox.innerText = num;
+	}
+});
 btnClear.addEventListener('click', () =>{
 	previousBox.innerText = '0';
 	currentBox.innerText = '0';
+	num = '';
 	operation = '';
-})
+});
