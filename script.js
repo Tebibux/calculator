@@ -8,7 +8,8 @@ const operationBtn = document.querySelectorAll('.operation');
 const deleteBtn = document.querySelectorAll('.btnDelete');
 // Used to retrieve all the number buttons
 const numberBtn = document.querySelectorAll('.numberBtn');
-
+// Used to retrieve the equal sign
+const equalSign = document.querySelector('.equalSign');
 // variable result is used to store result after multiplication
 let result;
 // temp variable for number to store clicked number
@@ -31,34 +32,48 @@ numberBtn.forEach(number => {
 let operation = '';
 operationBtn.forEach(opCommand => {
 	opCommand.addEventListener('click', (e) => {
-
-		if ((e.target.innerText === '*' && operation.includes('*')) ||
-			(e.target.innerText === '/' && operation.includes('/')) ||
-			(e.target.innerText === '+' && operation.includes('+')) ||
-			(e.target.innerText === '-' && operation.includes('-'))
-		) return;
+		if (operation !== '') return;
 		else {
 			operation = e.target.innerText;
-			previousBox.innerText += num;
+			previousBox.innerText = currentBox.innerText;
 			previousBox.innerText += operation;
-			num = '';
-			calculate(operation);
-			operation = '';
+			num = ''
+			currentBox.innerText = num;
 		}
-	})
+	});
 });
+// parsing equal sign
+equalSign.addEventListener('click', () => {
+	if (currentBox.innerText === '') return;
+	else {
+		calculate()
+	}
+})
 // function to calculate the operation
 function calculate(command) {
-	let firstNumber = '';
-	let secondNumber = '';
-	secondNumber = currentBox.innerText;
-	firstNumber = previousBox.innerText;
-	firstNumber.slice(0, -1);
-	secondNumber.slice(0, -1);
-	console.log(secondNumber);
-	if(command === '*'){
-		result = parseFloat(firstNumber) * parseFloat(secondNumber);
-		currentBox.innerText = '';
-		currentBox.innerText = result;
+	let firstNum = previousBox.innerText.slice(0, -1);
+	let secondNum = currentBox.innerText;
+	if (operation === '*') {
+		result = parseFloat(secondNum) * parseFloat(firstNum);
+		tempClear();
 	}
+	if (operation === '/') {
+		result = parseFloat(secondNum) / parseFloat(firstNum);
+		tempClear();
+	}
+	if (operation === '-') {
+		result = parseFloat(secondNum) - parseFloat(firstNum);
+		tempClear();
+	}
+	if (operation === '+') {
+		result = parseFloat(secondNum) + parseFloat(firstNum);
+		tempClear();
+	}
+
+}
+// for temporary clearance
+function tempClear() {
+	currentBox.innerText = result;
+	previousBox.innerText = '';
+	operation = '';
 }
