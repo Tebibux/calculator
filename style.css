@@ -1,12 +1,12 @@
 * {
 	padding: 0;
 	margin: 0;
-	font-size: 18px;
+	font-size:25px;
 	color: white;
 }
 
 .mainContainer {
-	height: 100vh;
+	height: 90vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -16,8 +16,8 @@
 }
 
 .container {
-	height: 40vh;
-	width: 300px;
+	height: 55vh;
+	width: 320px;
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
@@ -76,5 +76,48 @@ button:hover{
 }
 .equalSign{
 	width: 100%;
+	background-color: rgba(255, 136, 136, 0.644);
 	grid-column: equalSign;
+}
+
+#header,
+#footer {
+	width: 100%;
+	background-color: rgb(85, 153, 212);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#header {
+	box-shadow: 1px 12px 29px -7px rgba(163, 102, 102, 0.548);
+	-webkit-box-shadow: 1px 12px 29px -7px rgba(163, 102, 102, 0.514);
+	-moz-box-shadow: 1px 12px 29px -7px rgba(163, 102, 102, 0.527);
+}
+
+ul {
+	width: 100%;
+	list-style: none;
+	margin-left: 20px;
+}
+
+
+ul li {
+	padding: 0 0 0 20px;
+	margin-top: 10px;
+	width: 50%;
+
+}
+#footer {
+	height: 10vh;
+	font-size: 18px;
+	color: black;
+	font-weight: bold;
+	gap: 20px;
+	box-shadow: 1px -25px 29px -22px rgba(3, 3, 3, 0.37);
+	-webkit-box-shadow: 1px -25px 29px -22px rgba(3, 3, 3, 0.37);
+	-moz-box-shadow: 1px -25px 29px -22px rgba(3, 3, 3, 0.37);
+}
+.footer-text{
+	color: black;
 }

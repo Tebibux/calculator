@@ -48,6 +48,7 @@ equalSign.addEventListener('click', () => {
 	if (currentBox.innerText === '' && previousBox.innerText === '') return;
 	else{
 		calculate()
+		previousBox.innerText = '';
 	}
 })
 // function to calculate the operation
