@@ -2,6 +2,10 @@
 // display boxes
 const currentBox = document.querySelector('.currentBox');
 const previousBox = document.querySelector('.previousBox');
+// Used to delete the last variable entered
+const btnDelete = document.querySelector('.btnDelete')
+// Used to clear all the entered value
+const btnClear = document.querySelector('.btnClear');
 // Used to retrieve all the operation buttons
 const operationBtn = document.querySelectorAll('.operation');
 // Used to retrieve all the delete buttons
@@ -77,3 +81,18 @@ function tempClear() {
 	previousBox.innerText = '';
 	operation = '';
 }
+
+// for deleting the last element
+btnDelete.addEventListener('click', ()=>{
+	if(currentBox.innerText === '') return;
+	else{
+		let tempCurrent = '';
+		tempCurrent = currentBox.innerText.slice(0, -1);
+		currentBox.innerText = tempCurrent
+	}
+})
+btnClear.addEventListener('click', () =>{
+	previousBox.innerText = '0';
+	currentBox.innerText = '0';
+	operation = '';
+})
